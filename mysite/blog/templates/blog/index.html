@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}主页{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2><a href="{% url 'edit_page' 0 %}">新文章</a></h2>
+        <hr>
+    {% for article in article_list %}
+    <ul class="post" style="list-style: none">
+    <li class="post">
+        <div class="post-thumbnail">
+        </div>
+        <div class="post-content">
+
+            <div class="post-author" style="font-size: 25px"><a href="{% url 'details' article.id %}">{{ article.title }}</a></div>
+            <br/>
+            <div class="post-body">{{ article.content |slice:'150'}}...</div>
+            <div class="blog-post-meta" style="float: right">{{ article.create_time }}</div>
+            <br/>
+        </div>
+    </li>
+    </ul>
+        <hr/>
+        {% endfor %}
+    </div>
+
+{% endblock %}

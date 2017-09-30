@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}主页{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h3>盗墓笔记</h3>
+    <hr/>
+    {% for jsbooks in jsbooks_list %}
+    <table>
+        <tr>
+            <td><a href="{% url 'daomubiji_page' jsbooks.id %}">{{ jsbooks.title }}</a></tr></td>
+        </tr>
+    </table>
+
+
+    {% endfor %}
+</div>
+{% endblock %}

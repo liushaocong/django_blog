@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}{{ jsbook.title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ jsbook.title }}</h2>
+    <hr/>
+    <p>{{ jsbook.body | safe }}</p>
+</div>
+{% endblock %}

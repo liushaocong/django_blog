@@ -1,0 +1,40 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}编辑{% endblock %}
+
+{% block content %}
+
+<div class="container">
+<form action="{% url 'edit_body' %}" method="post" >
+    {% csrf_token %}
+    {% if article %}
+    <input type="hidden" name="article_id" value="{{ article.id }}">
+    <label>标题
+        <input type="text" name="title" value="{{ article.title }}" >
+    </label>
+    <br/>
+    <label>内容
+        <input type="text" name='content' value="{{ article.content }}" >
+    </label>
+    <br/>
+    {% else %}
+    <input type="hidden" name="article_id" value="0">
+    <label>标题
+        <input type="text" name="title" >
+    </label>
+    <br/>
+    <label>内容
+        <input type="text" name=content >
+    </label>
+    <br/>
+    {% endif %}
+        <label>
+        <input type="submit" name="提交">
+    </label>
+</form>
+</div>
+
+
+
+
+{% endblock %}

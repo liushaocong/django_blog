@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ article.title }}</h2>
+    <hr/>
+    <p>{{ article.content }}</p>
+    <a href="{% url 'edit_page' article.id %}">修改文章</a>
+</div>
+{% endblock %}
